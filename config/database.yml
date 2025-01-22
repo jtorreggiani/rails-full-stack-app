@@ -80,7 +80,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    url: <%= ENV['DATABASE_URL'] %>
+    url: <%= ENV['HEROKU_POSTGRESQL_IVORY_URL'] %>
   cache:
     <<: *primary_production
     database: rails_full_stack_app_production_cache
