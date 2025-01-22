@@ -80,10 +80,9 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    host: <%= ENV["DB_HOST"] %>
-    database: <%= ENV["DATABASE_NAME"] %>
-    username: <%= ENV["DATABASE_USER"] %>
-    password: <%= ENV["DATABASE_PASSWORD"] %>
+    database: rails_full_stack_app_production
+    username: rails_full_stack_app
+    password: <%= ENV["RAILS_FULL_STACK_APP_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: rails_full_stack_app_production_cache
