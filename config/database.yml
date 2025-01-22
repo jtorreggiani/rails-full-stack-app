@@ -19,7 +19,6 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-
 development:
   <<: *default
   database: rails_full_stack_app_development
@@ -81,9 +80,10 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: rails_full_stack_app_production
-    username: rails_full_stack_app
-    password: <%= ENV["RAILS_FULL_STACK_APP_DATABASE_PASSWORD"] %>
+    host: <%= ENV["DB_HOST"] %>
+    database: <%= ENV["DATABASE_NAME"] %>
+    username: <%= ENV["DATABASE_USER"] %>
+    password: <%= ENV["DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: rails_full_stack_app_production_cache
